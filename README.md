@@ -1,6 +1,6 @@
 <p align="center"><img src="static/icons/128.png" width="80" alt=""></p>
 
-<h1 align="center">Squint</h1>
+<h1 align="center">Squint TL;DR</h1>
 
 <p align="center">Squint at the small print. A Chrome extension that rejects cookie banners for you and tells you what you're actually agreeing to in privacy policies and terms of service.</p>
 
