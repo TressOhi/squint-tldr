@@ -48,7 +48,7 @@ See [PRIVACY.md](PRIVACY.md) for exactly what is stored and sent.
 Until Squint is on the Chrome Web Store, install it from source:
 
 ```sh
-git clone https://github.com/TressOhi/squint.git && cd squint
+git clone https://github.com/TressOhi/squint-tldr.git && cd squint-tldr
 npm ci
 npm run build
 ```
