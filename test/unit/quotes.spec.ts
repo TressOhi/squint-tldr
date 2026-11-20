@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { normalize, quoteAppears, verifyQuotes } from "../../src/lib/quotes";
+import { normalize, quoteAppears, verifyQuotes } from "../../src/core/analysis/quotes";
 
 const POLICY = `
   12. Dispute Resolution. YOU AND ACME AGREE THAT ANY DISPUTE WILL BE RESOLVED BY BINDING,

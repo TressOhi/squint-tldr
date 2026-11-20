@@ -1,6 +1,6 @@
 // Background worker: opens the side panel, records per-tab cookie results, sets the badge.
-import { isContentMessage } from "../lib/messages";
-import { tabKey, type CookieResult } from "../lib/storage";
+import { isContentMessage } from "../platform/messages";
+import { activeConnection, getSettings, tabKey, type CookieResult } from "../platform/storage";
 
 chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch((err: unknown) => {
   console.error("Squint: couldn't set side panel behaviour", err);
@@ -8,8 +8,8 @@ chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch((err: 
 
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason !== "install") return;
-  void chrome.storage.local.get<{ apiKey?: string }>("apiKey").then(({ apiKey }) => {
-    if (!apiKey) void chrome.runtime.openOptionsPage();
+  void getSettings().then((settings) => {
+    if (!activeConnection(settings)) void chrome.runtime.openOptionsPage();
   });
 });
 

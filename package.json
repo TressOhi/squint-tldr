@@ -8,7 +8,6 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "watch": "node scripts/build.mjs --watch",
-    "icons": "node scripts/make-icons.mjs",
     "typecheck": "tsc -p src && tsc -p .",
     "lint": "eslint .",
     "test": "npm run build && playwright test",
@@ -18,6 +17,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.10.0",
+    "openai": "7.52.0",
     "zod": "4.6.7"
   },
   "devDependencies": {

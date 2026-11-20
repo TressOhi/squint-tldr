@@ -1,0 +1,27 @@
+{
+  "en": [
+    "reject( all)?( cookies)?",
+    "reject (all )?(optional|non[- ]?essential|additional) cookies",
+    "decline( all)?( cookies)?",
+    "decline (optional|non[- ]?essential) cookies",
+    "deny( all)?( cookies)?",
+    "refuse( all)?( cookies)?",
+    "disagree( and close)?",
+    "i (do not|don't) (accept|agree)",
+    "(use|allow|accept) (only )?(strictly )?(necessary|essential|required)( cookies)?( only)?",
+    "only (strictly )?(necessary|essential|required)( cookies)?",
+    "(strictly )?(necessary|essential|required)( cookies)? only",
+    "continue without (accepting|agreeing|consent)",
+    "do not consent"
+  ],
+  "de": ["alle ablehnen", "ablehnen", "nur notwendige( cookies)?"],
+  "fr": ["tout refuser", "refuser( tout)?", "continuer sans accepter"],
+  "es": ["rechazar( todo| todas)?"],
+  "it": ["rifiuta( tutto)?"],
+  "nl": ["alles weigeren", "weigeren"],
+  "pt": ["rejeitar( tudo)?", "recusar"],
+  "pl": ["odrzuć( wszystkie)?"],
+  "sv": ["avvisa alla"],
+  "da": ["afvis alle"],
+  "fi": ["hylkää kaikki"]
+}

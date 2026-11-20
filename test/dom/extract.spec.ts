@@ -3,7 +3,7 @@ import { buildSync } from "esbuild";
 import { expect, test } from "@playwright/test";
 
 const bundle = buildSync({
-  entryPoints: ["src/lib/extract.ts"],
+  entryPoints: ["src/core/documents/extract.ts"],
   bundle: true,
   format: "iife",
   globalName: "SquintExtract",
@@ -15,7 +15,7 @@ async function textOf(page: import("@playwright/test").Page, html: string): Prom
   await page.setContent("<!doctype html><html><body></body></html>");
   await page.addScriptTag({ content: bundle });
   return page.evaluate((h) => {
-    const w = window as unknown as { SquintExtract: typeof import("../../src/lib/extract") };
+    const w = window as unknown as { SquintExtract: typeof import("../../src/core/documents/extract") };
     return w.SquintExtract.htmlToText(h).text;
   }, html);
 }

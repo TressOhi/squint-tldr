@@ -1,0 +1,76 @@
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --surface-2: #f3f1ec;
+  --text: #1c1b19;
+  --muted: #6b675f;
+  --border: #e4e0d8;
+  --accent: #c27c0e;
+  --accent-ink: #ffffff;
+  --red: #c5221f;
+  --red-bg: #fce8e6;
+  --amber: #a36100;
+  --amber-bg: #fef3dc;
+  --green: #137333;
+  --green-bg: #e6f4ea;
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17161a;
+    --surface: #211f24;
+    --surface-2: #2a282e;
+    --text: #ecebe8;
+    --muted: #a19d96;
+    --border: #3a373f;
+    --accent: #f0a73a;
+    --accent-ink: #1c1b19;
+    --red: #f28b82;
+    --red-bg: #3c1f1e;
+    --amber: #fdd663;
+    --amber-bg: #3a2e12;
+    --green: #81c995;
+    --green-bg: #1b3324;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+/* Components set their own display; never let that override the hidden attribute. */
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.btn:hover { background: var(--surface-2); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.05); }
+.btn:disabled { opacity: 0.55; cursor: default; }
+input[type="text"], input[type="url"], input[type="password"], select, textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+a { color: var(--accent); }
+.muted { color: var(--muted); }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+.brand img { width: 22px; height: 22px; }

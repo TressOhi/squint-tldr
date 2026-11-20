@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Squint",
+  "version": "0.1.0",
+  "description": "Squint at the small print. Auto-rejects cookie banners and flags risky clauses in privacy policies and terms, with the AI model you choose.",
+  "minimum_chrome_version": "116",
+  "icons": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "action": { "default_title": "Squint", "default_icon": { "16": "icons/16.png", "32": "icons/32.png" } },
+  "background": { "service_worker": "js/background.js", "type": "module" },
+  "side_panel": { "default_path": "pages/sidepanel.html" },
+  "options_page": "pages/settings.html",
+  "permissions": ["storage", "sidePanel", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

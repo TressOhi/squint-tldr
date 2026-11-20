@@ -1,0 +1,118 @@
+[
+  {
+    "id": "anthropic",
+    "name": "Anthropic (Claude)",
+    "protocol": "anthropic-messages",
+    "baseUrl": "https://api.anthropic.com",
+    "key": "required",
+    "keyUrl": "https://platform.claude.com/settings/keys",
+    "keyPlaceholder": "sk-ant-…",
+    "defaultModel": "claude-opus-5-5",
+    "prices": {
+      "claude-fable-5-2": {
+        "input": 8,
+        "output": 40
+      },
+      "claude-opus-5-5": {
+        "input": 4,
+        "output": 20
+      },
+      "claude-sonnet-5-5": {
+        "input": 2,
+        "output": 10
+      }
+    },
+    "serverFallbackModels": [
+      "claude-fable-5-2",
+      "claude-opus-5-5"
+    ]
+  },
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "protocol": "openai-chat",
+    "baseUrl": "https://api.openai.com/v1",
+    "key": "required",
+    "keyUrl": "https://platform.openai.com/api-keys",
+    "keyPlaceholder": "sk-…"
+  },
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "protocol": "openai-chat",
+    "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai/",
+    "key": "required",
+    "keyUrl": "https://aistudio.google.com/apikey"
+  },
+  {
+    "id": "openrouter",
+    "name": "OpenRouter",
+    "protocol": "openai-chat",
+    "baseUrl": "https://openrouter.ai/api/v1",
+    "key": "required",
+    "keyUrl": "https://openrouter.ai/keys",
+    "keyPlaceholder": "sk-or-…",
+    "note": "One key for models from many providers."
+  },
+  {
+    "id": "groq",
+    "name": "Groq",
+    "protocol": "openai-chat",
+    "baseUrl": "https://api.groq.com/openai/v1",
+    "key": "required",
+    "keyUrl": "https://console.groq.com/keys",
+    "keyPlaceholder": "gsk_…"
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral",
+    "protocol": "openai-chat",
+    "baseUrl": "https://api.mistral.ai/v1",
+    "key": "required",
+    "keyUrl": "https://console.mistral.ai/api-keys"
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "protocol": "openai-chat",
+    "baseUrl": "https://api.deepseek.com",
+    "key": "required",
+    "keyUrl": "https://platform.deepseek.com/api_keys",
+    "keyPlaceholder": "sk-…"
+  },
+  {
+    "id": "xai",
+    "name": "xAI (Grok)",
+    "protocol": "openai-chat",
+    "baseUrl": "https://api.x.ai/v1",
+    "key": "required",
+    "keyUrl": "https://console.x.ai",
+    "keyPlaceholder": "xai-…"
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama (on this computer)",
+    "protocol": "openai-chat",
+    "baseUrl": "http://localhost:11434/v1",
+    "key": "none",
+    "local": true,
+    "note": "Free and private: nothing leaves your computer. Long policies need a model with a large context window."
+  },
+  {
+    "id": "lmstudio",
+    "name": "LM Studio (on this computer)",
+    "protocol": "openai-chat",
+    "baseUrl": "http://localhost:1234/v1",
+    "key": "none",
+    "local": true,
+    "note": "Start the local server in LM Studio first."
+  },
+  {
+    "id": "custom",
+    "name": "Other (OpenAI-compatible)",
+    "protocol": "openai-chat",
+    "baseUrl": "",
+    "key": "optional",
+    "note": "Any server that speaks the OpenAI Chat Completions API."
+  }
+]

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squint settings</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/settings.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand"><img src="../icons/48.png" alt="">Squint</div>
+    <p class="lede">Squint auto-rejects cookie banners and flags the risky parts of privacy policies and terms.</p>
+
+    <section class="card">
+      <h2>AI model</h2>
+      <p class="muted">Policy scans use an AI model through your own account: pick a provider, connect it, then choose a model. Cookie auto-reject doesn't need any of this.</p>
+
+      <label for="provider" class="label">Provider</label>
+      <select id="provider">
+        <option value="">Choose a provider…</option>
+      </select>
+      <p id="provider-note" class="small muted note" hidden></p>
+
+      <form id="connect-form" class="connect" hidden>
+        <div id="endpoint-field" class="field" hidden>
+          <label for="base-url" class="label">Server address</label>
+          <input type="text" inputmode="url" id="base-url" autocomplete="off" spellcheck="false">
+        </div>
+        <div id="key-field" class="field" hidden>
+          <label for="api-key" class="label" id="key-label">API key</label>
+          <input type="password" id="api-key" autocomplete="off" spellcheck="false">
+        </div>
+        <button class="btn primary" type="submit" id="connect">Save and test</button>
+      </form>
+      <div class="row tight" id="status-row" hidden>
+        <span id="key-status" class="muted small" role="status"></span>
+        <button class="btn link" type="button" id="remove-key" hidden>Remove key</button>
+      </div>
+      <p id="key-help" class="small muted" hidden>No key yet? Create one at <a id="key-link" target="_blank" rel="noopener noreferrer"></a>. Setting a spending limit there is a good idea.</p>
+
+      <div id="model-field" class="field" hidden>
+        <label for="model" class="label">Model</label>
+        <select id="model"></select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Cookie banners</h2>
+      <label class="check">
+        <input type="checkbox" id="auto-reject">
+        <span>Automatically reject cookie banners</span>
+      </label>
+      <h3>Paused sites</h3>
+      <ul id="paused" class="paused"></ul>
+      <p id="no-paused" class="muted small">None. Pause a site from the Squint side panel.</p>
+    </section>
+
+    <section class="card">
+      <h2>Privacy</h2>
+      <ul class="small privacy">
+        <li>Your keys are stored only in this browser profile, in the extension's local storage.</li>
+        <li>When you scan, the document's text goes straight from your browser to the provider you chose. There is no Squint server. With a provider that runs on your computer, nothing leaves it.</li>
+        <li>Cookie auto-reject runs entirely in your browser and sends nothing anywhere.</li>
+        <li>Recent scan results are kept locally so reopening a policy doesn't cost another scan.</li>
+      </ul>
+      <button class="btn" type="button" id="clear-cache">Clear saved scans</button>
+    </section>
+  </main>
+  <script type="module" src="../js/settings.js"></script>
+</body>
+</html>

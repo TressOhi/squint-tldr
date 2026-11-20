@@ -4,6 +4,7 @@
 // Order: known consent tools first (precise selectors), then any banner-shaped element whose
 // buttons say "Reject all" or similar. It never clicks anything that accepts.
 import { CMPS, type Cmp } from "./cmps";
+import rejectPhrases from "./data/reject-phrases.json" with { type: "json" };
 
 export interface RejectOutcome {
   cmp: string;
@@ -18,25 +19,8 @@ export interface RejectOptions {
   settleMs?: number;
 }
 
-const REJECT_PHRASES = [
-  "reject( all)?( cookies)?",
-  "reject (all )?(optional|non[- ]?essential|additional) cookies",
-  "decline( all)?( cookies)?",
-  "decline (optional|non[- ]?essential) cookies",
-  "deny( all)?( cookies)?",
-  "refuse( all)?( cookies)?",
-  "disagree( and close)?",
-  "i (do not|don't) (accept|agree)",
-  "(use|allow|accept) (only )?(strictly )?(necessary|essential|required)( cookies)?( only)?",
-  "only (strictly )?(necessary|essential|required)( cookies)?",
-  "(strictly )?(necessary|essential|required)( cookies)? only",
-  "continue without (accepting|agreeing|consent)",
-  "do not consent",
-  // Other languages
-  "alle ablehnen", "ablehnen", "nur notwendige( cookies)?", "tout refuser", "refuser( tout)?",
-  "continuer sans accepter", "rechazar( todo| todas)?", "rifiuta( tutto)?", "alles weigeren", "weigeren",
-  "rejeitar( tudo)?", "recusar", "odrzuć( wszystkie)?", "avvisa alla", "afvis alle", "hylkää kaikki",
-];
+// Whole-label patterns (regex fragments), grouped by language. Add new phrasings there.
+const REJECT_PHRASES = Object.values(rejectPhrases).flat();
 export const REJECT_LABEL = new RegExp(`^(${REJECT_PHRASES.join("|")})[.!]?$`, "iu");
 const ACCEPTS = /\b(accept|agree|allow all|got it|okay)\b|^ok$/i;
 const STILL_REJECTS = /without|do not|don't|necessary|essential|required/i;

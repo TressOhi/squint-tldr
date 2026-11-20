@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squint</title>
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/sidepanel.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><img src="../icons/48.png" alt="">Squint</div>
+    <button class="icon-btn" id="open-settings" title="Settings" aria-label="Settings">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.4zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <section class="card cookie" id="cookie-card">
+      <div class="cookie-row">
+        <span class="dot" id="cookie-dot"></span>
+        <div>
+          <div id="cookie-title">Cookie banners</div>
+          <div class="muted small" id="cookie-detail"></div>
+        </div>
+      </div>
+      <label class="switch-row small">
+        <input type="checkbox" id="site-toggle" checked>
+        <span>Auto-reject on <strong id="site-name">this site</strong></span>
+      </label>
+    </section>
+
+    <div class="banner" id="no-key" hidden>
+      Cookie rejecting works without a key. To scan policies, <a href="#" id="add-key">connect an AI model</a> with your own API key.
+    </div>
+
+    <section class="scan">
+      <button class="btn primary wide" id="scan-page">Scan this page</button>
+      <div class="or"><span>or paste a link</span></div>
+      <form id="link-form" class="link-row">
+        <input type="text" inputmode="url" autocomplete="url" spellcheck="false" id="link-input" placeholder="https://example.com/terms" aria-label="Link to a policy" required>
+        <button class="btn" type="submit" id="link-submit">Scan</button>
+      </form>
+      <details id="paste-details">
+        <summary class="small">Paste text instead (for app terms you've copied)</summary>
+        <textarea id="paste-input" rows="6" placeholder="Paste the terms or policy text here"></textarea>
+        <button class="btn" type="button" id="scan-paste">Scan text</button>
+      </details>
+    </section>
+
+    <section id="status" class="status" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <div>
+        <div id="status-text">Reading the small print…</div>
+        <div class="muted small">Usually 20–60 seconds for a long policy.</div>
+      </div>
+      <button class="btn small-btn" id="cancel">Cancel</button>
+    </section>
+
+    <section id="error" class="error" hidden></section>
+
+    <section id="result" hidden></section>
+  </main>
+
+  <script type="module" src="../js/sidepanel.js"></script>
+</body>
+</html>
