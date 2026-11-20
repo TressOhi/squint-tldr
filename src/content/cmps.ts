@@ -1,0 +1,58 @@
+// Known consent tools ("CMPs"). Each entry says how to spot its banner and which button
+// rejects everything. Text matching inside `detect` is the backup when a selector changes.
+// Fields: detect (banner selector), reject (button selectors), settings/panel/save (the
+// "manage preferences" route when there's no reject button), shadowHost (if inside shadow DOM).
+//
+// Selectors drift as vendors ship updates. Fixes and new CMPs are very welcome as PRs.
+
+export interface Cmp {
+  name: string;
+  /** Selector for the banner or dialog; it must be visible for the entry to apply. */
+  detect: string;
+  /** Buttons that reject everything, tried in order. */
+  reject: string[];
+  /** The "manage preferences" route, for banners without a reject button. */
+  settings?: string;
+  panel?: string;
+  save?: string[];
+  /** Host element whose open shadow root contains the banner. */
+  shadowHost?: string;
+}
+
+export const CMPS: readonly Cmp[] = [
+  {
+    name: "OneTrust",
+    detect: "#onetrust-banner-sdk, #onetrust-pc-sdk",
+    reject: ["#onetrust-reject-all-handler", ".ot-pc-refuse-all-handler"],
+    settings: "#onetrust-pc-btn-handler",
+    panel: "#onetrust-pc-sdk",
+    save: [".save-preference-btn-handler"],
+  },
+  {
+    name: "Cookiebot",
+    detect: "#CybotCookiebotDialog",
+    reject: ["#CybotCookiebotDialogBodyButtonDecline", "#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll"],
+    settings: "#CybotCookiebotDialogBodyLevelButtonCustomize",
+    panel: "#CybotCookiebotDialog",
+    save: ["#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection", "#CybotCookiebotDialogBodyButtonAcceptSelected"],
+  },
+  { name: "Didomi", detect: "#didomi-host, #didomi-popup, #didomi-notice", reject: ["#didomi-notice-disagree-button", ".didomi-continue-without-agreeing"] },
+  { name: "Usercentrics", shadowHost: "#usercentrics-root, #usercentrics-cmp-ui", detect: "[data-testid=uc-default-banner], #uc-center-container, [data-testid=uc-banner-content], div", reject: ["[data-testid=uc-deny-all-button]", "#deny"] },
+  { name: "Quantcast Choice", detect: ".qc-cmp2-container", reject: [] },
+  { name: "Google Funding Choices", detect: ".fc-consent-root", reject: [".fc-cta-do-not-consent"] },
+  { name: "Osano", detect: ".osano-cm-window, .osano-cm-dialog", reject: [".osano-cm-denyAll", ".osano-cm-button--type_deny"] },
+  { name: "CookieYes", detect: ".cky-consent-container, .cky-modal", reject: [".cky-btn-reject"] },
+  { name: "Complianz", detect: "#cmplz-cookiebanner-container, .cmplz-cookiebanner", reject: [".cmplz-deny"] },
+  { name: "Termly", detect: "[data-tid=banner], #termly-code-snippet-support", reject: ["[data-tid=banner-decline]"] },
+  { name: "iubenda", detect: "#iubenda-cs-banner", reject: [".iubenda-cs-reject-btn"] },
+  { name: "Axeptio", detect: "#axeptio_overlay, .axeptio_widget", reject: ["#axeptio_btn_dismiss"] },
+  { name: "Klaro", detect: ".klaro .cookie-notice, .klaro .cookie-modal", reject: [".cm-btn-decline", ".cn-decline"] },
+  { name: "Cookie Script", detect: "#cookiescript_injected", reject: ["#cookiescript_reject"] },
+  { name: "CookieHub", detect: ".ch2-container, .ch2-dialog", reject: [".ch2-deny-all-btn"] },
+  { name: "TrustArc", detect: "#truste-consent-track, #truste-consent-content", reject: ["#truste-consent-required"] },
+  { name: "Borlabs", detect: "#BorlabsCookieBox", reject: ["[data-cookie-refuse]", "._brlbs-refuse-btn"] },
+  { name: "Cookie Notice", detect: "#cookie-notice", reject: ["#cn-refuse-cookie"] },
+  { name: "GDPR Cookie Compliance", detect: "#moove_gdpr_cookie_info_bar", reject: [".moove-gdpr-infobar-reject-btn"] },
+  { name: "CookieFirst", detect: "[data-cookiefirst-widget], .cookiefirst-root", reject: ["[data-cookiefirst-action=reject]"] },
+  { name: "consentmanager", detect: "#cmpbox", reject: ["#cmpbntnotxt", ".cmpboxbtnno"] },
+];

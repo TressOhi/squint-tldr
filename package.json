@@ -1,0 +1,36 @@
+{
+  "name": "squint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Squint at the small print: auto-reject cookie banners and flag risky clauses in privacy policies and terms.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "icons": "node scripts/make-icons.mjs",
+    "typecheck": "tsc -p src && tsc -p .",
+    "lint": "eslint .",
+    "test": "npm run build && playwright test",
+    "test:unit": "playwright test --project=unit",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "package": "npm run build && cd dist && zip -qr ../squint.zip ."
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.10.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.65.1",
+    "@types/chrome": "0.3.7",
+    "@types/node": "22.20.5",
+    "esbuild": "0.28.2",
+    "eslint": "10.15.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.73.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

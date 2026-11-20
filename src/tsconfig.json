@@ -1,0 +1,6 @@
+{
+  // Extension code: browser and Chrome APIs only, no Node types.
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": { "types": ["chrome"] },
+  "include": ["."]
+}

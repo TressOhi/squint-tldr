@@ -1,0 +1,20 @@
+.wrap { max-width: 640px; margin: 0 auto; padding: 32px 16px 64px; display: grid; gap: 16px; }
+.brand { font-size: 20px; }
+.brand img { width: 28px; height: 28px; }
+.lede { margin: 0; color: var(--muted); }
+h2 { font-size: 16px; margin: 0 0 6px; }
+h3 { font-size: 13px; margin: 16px 0 6px; color: var(--muted); font-weight: 600; }
+.card p { margin: 0 0 10px; }
+.label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 4px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.row input { flex: 1; min-width: 0; }
+.row.tight { min-height: 28px; margin: 6px 0 4px; justify-content: space-between; }
+.small { font-size: 12.5px; }
+.btn.link { background: none; border: 0; color: var(--red); padding: 2px 4px; }
+.check { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.paused { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.paused li { display: flex; justify-content: space-between; align-items: center; background: var(--surface-2); border-radius: 6px; padding: 4px 4px 4px 10px; }
+.privacy { margin: 0 0 12px; padding-left: 18px; display: grid; gap: 4px; }
+.ok { color: var(--green); }
+.bad { color: var(--red); }
+@media (max-width: 480px) { .row { flex-wrap: wrap; } .row .btn { width: 100%; } }

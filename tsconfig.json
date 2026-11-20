@@ -1,0 +1,6 @@
+{
+  // Tests and tooling (Node + Playwright). Extension code is checked by src/tsconfig.json.
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "types": ["chrome", "node"] },
+  "include": ["test", "playwright.config.ts"]
+}
